@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- =================================================================== -->
+<!-- ELU SIAPA? NGAPAIN SAMPE MASUK SINI WOIIII GW BUAT INI UNTUK JOVANKA!!!! -->
+
+<!-- ==================================================================== -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown to 17 August 2025</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <h2>Hayoo ketauann!!</h2>
+    <img src="assets/waiting.gif" alt="Waiting GIF" />
+    <h1>Udah dibilang bukanya nunggu ini kelar duluuu</h1>
+    <div id="countdown">Loading...</div>
+    <!-- <button id="next-button" class="scroll-button" onclick="scrollToNextSection()">Lihat Selanjutnya ✨</button> -->
+    <h1>( ≖‿ ≖ )</h1>
+    <h4>Lanjut belajar sanaaa</h4>
+
+    <!-- Content Section: Carousel with momen -->
+    <div id="content" class="content-section" style="display: none">
+      <h1>Here are the moments! 🎉</h1>
+      <div id="carousel">
+        <!-- Carousel Items -->
+        <div class="carousel-item">
+          <img src="assets/foto1.jpg" alt="Moment 1" />
+          <p>Catatan Manis: Terima kasih sudah jadi bagian dari hidupku. 💖</p>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/foto2.jpg" alt="Moment 2" />
+          <p>Kenangan Bersama: Setiap detik bersama kamu sangat berharga.</p>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/foto3.jpg" alt="Moment 3" />
+          <p>Harapan: Semoga kita selalu bersama di setiap momen indah.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const countdownElement = document.getElementById('countdown');
+      const nextButton = document.getElementById('next-button');
+      const contentSection = document.getElementById('content');
+
+      function updateCountdown() {
+        const now = new Date();
+        const nowUTC7 = new Date(now.getTime() + (7 - now.getTimezoneOffset() / 60) * 3600 * 1000);
+        const targetDate = new Date(Date.UTC(2025, 7, 17, 0, 0, 0));
+
+        const diff = targetDate - nowUTC7;
+
+        if (diff <= 0) {
+          countdownElement.textContent = 'Sekarang 17 Agustus 2025! 🎉';
+          nextButton.style.display = 'inline-block';
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        countdownElement.textContent = `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // Scroll to next section and show carousel
+      function scrollToNextSection() {
+        window.scrollTo({
+          top: window.innerHeight, // Scroll down to the next section
+          behavior: 'smooth',
+        });
+
+        setTimeout(() => {
+          contentSection.style.display = 'block'; // Show content after scrolling
+        }, 500); // Wait for scroll animation to complete
+      }
+    </script>
+  </body>
+</html>
