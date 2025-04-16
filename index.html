@@ -48,7 +48,7 @@
       function updateCountdown() {
         const now = new Date();
         const nowUTC7 = new Date(now.getTime() + (7 - now.getTimezoneOffset() / 60) * 3600 * 1000);
-        const targetDate = new Date(Date.UTC(2025, 7, 17, 0, 0, 0));
+        const targetDate = new Date(Date.UTC(2025, 7, 17, 7, 0, 0));
 
         const diff = targetDate - nowUTC7;
 
